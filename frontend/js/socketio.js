@@ -10,7 +10,7 @@ const setConnectionInfo = () => {
     }
 
     socketStatusDiv.textContent = socket.connected ?
-        `connected with ID: ${socket.id}` :
+        `Connected. Your client ID: ${socket.id}` :
         `Disconnected. Trying to reconnect. Attempt: ${reconnectAttempt}`;
 };
 
