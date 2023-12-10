@@ -19,11 +19,13 @@ Serwer jest automatycznie restartowany w momencie zapisania zmian wprowadzonych 
 
 ##  Uruchomienie klienta aplikacji
 
-Otwórz drugie okno terminala, a następnie przejdź do katalogu [frontend](frontend/), który zawiera pliki klienta aplikacji. Wykonaj polecenie
+Otwórz drugie okno terminala, a następnie przejdź do katalogu [frontend](frontend/), który zawiera pliki klienta aplikacji.
+
+Wykonaj polecenie
 ```shell
 npx live-server --port=80
 ```
-które uruchamia serwer HTTP serwujący statyczne pliki frontendu na porcie 80 (http://localhost).
+które uruchamia serwer HTTP serwujący statyczne pliki z katalogu [frontend](frontend) na porcie 80 (http://localhost).
 
 W momencie gdy wprowadzimy zmiany w plikach katalogu [frontend](frontend/) okno przeglądarki powinno się samo odświeżać.
 
