@@ -39,7 +39,7 @@ textarea {
     padding-top: 2px;
 }
 
-.messages {
+.messages-container {
     text-align: left;
     width: 500px;
     justify-content: center;
@@ -75,6 +75,8 @@ textarea {
 /* text content of the message */
 .msg-content {
     display: inline-block;
+    max-width: 100%;
+    word-wrap: break-word;
 }
 
 /* message timestamp */
@@ -83,4 +85,8 @@ textarea {
 
     display: flex;
     justify-content: flex-end;
+}
+
+.queryParamsContainer {
+    margin-top: 4rem;
 }
