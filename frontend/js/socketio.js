@@ -5,8 +5,16 @@ let reconnectAttempt = 0;
 
 const setConnectionInfo = () => {
     if (socketStatusDiv == null) {
-        console.error('DOM element with ID=\'socketStatus\' does not exists')
+        console.error('DOM element with ID=\'socketStatus\' does not exist');
         return;
+    }
+
+    socketStatusDiv.classList.remove('connected', 'disconnected');
+
+    if (socket.connected) {
+        socketStatusDiv.classList.add('connected');
+    } else {
+        socketStatusDiv.classList.add('disconnected');
     }
 
     socketStatusDiv.textContent = socket.connected ?
