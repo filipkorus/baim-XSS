@@ -29,9 +29,9 @@ form.onsubmit = event => {
  */
 const getMessageListItem = messageObj => {
     const li = document.createElement('li'); li.classList.add('msg-item');
-    const msgAuthorDiv = document.createElement('div'); msgAuthorDiv.classList.add('msg-author')
-    const msgContentDiv = document.createElement('div'); msgContentDiv.classList.add('msg-content')
-    const msgTimestampDiv = document.createElement('div'); msgTimestampDiv.classList.add('msg-timestamp')
+    const msgAuthorDiv = document.createElement('div'); msgAuthorDiv.classList.add('msg-author');
+    const msgContentDiv = document.createElement('div'); msgContentDiv.classList.add('msg-content');
+    const msgTimestampDiv = document.createElement('div'); msgTimestampDiv.classList.add('msg-timestamp');
 
     // adding tag content
     msgAuthorDiv.innerHTML = `${messageObj.clientId !== socket.id ? messageObj.clientId : 'you'}:`;
