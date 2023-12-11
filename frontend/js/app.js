@@ -28,20 +28,19 @@ form.onsubmit = event => {
  * @return {HTMLLIElement} ListItem (li) HTML element with message.
  */
 const getMessageListItem = messageObj => {
-    const li = document.createElement('li');
-    const b = document.createElement('b');
-    const span = document.createElement('span');
-    const small = document.createElement('small');
-    small.style.fontSize = '.6rem'
+    const li = document.createElement('li'); li.classList.add('msg-item');
+    const msgAuthorDiv = document.createElement('div'); msgAuthorDiv.classList.add('msg-author')
+    const msgContentDiv = document.createElement('div'); msgContentDiv.classList.add('msg-content')
+    const msgTimestampDiv = document.createElement('div'); msgTimestampDiv.classList.add('msg-timestamp')
 
     // adding tag content
-    b.innerHTML = `${messageObj.clientId !== socket.id ? messageObj.clientId : 'you'}: `;
-    span.innerHTML = messageObj.content;
-    small.innerHTML = ` (${formatDate(messageObj.timestamp)})`;
+    msgAuthorDiv.innerHTML = `${messageObj.clientId !== socket.id ? messageObj.clientId : 'you'}:`;
+    msgContentDiv.innerHTML = messageObj.content;
+    msgTimestampDiv.innerHTML = formatDate(messageObj.timestamp);
 
-    li.appendChild(b);
-    li.appendChild(span);
-    li.appendChild(small);
+    li.appendChild(msgAuthorDiv);
+    li.appendChild(msgContentDiv);
+    li.appendChild(msgTimestampDiv);
 
     return li;
 };
