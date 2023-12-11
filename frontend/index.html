@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>XSSChat</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -22,21 +22,24 @@
 
 <div id="socketStatus"></div>
 
-<div>
-    <ul id="messages"></ul>
+<div class="content-container">
+<div class="messages">
+    <ul  class="unordered" id="messages"></ul>
 </div>
 
-<form>
+<form class="form">
     <label>
         <textarea
                 id="message-input"
                 placeholder="type something..."
                 rows="5"
-                style="resize: none; width: 100%;"
+                class="textar"
         ></textarea>
     </label>
-    <button type="submit" style="display: block; width: 100%;">Send</button>
+    <div class="btn-container">
+        <button class="btn" type="submit">Send</button>
+    </div>
 </form>
-
+</div>
 </body>
 </html>

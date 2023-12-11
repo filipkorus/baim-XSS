@@ -4,4 +4,5 @@ type Message = {
 	timestamp: Date
 };
 
+
 export default Message;
