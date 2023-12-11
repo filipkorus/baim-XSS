@@ -40,6 +40,8 @@ Aby zapobiec zapisywaniu zainfekowanych wiadomości do bazy danych wykonaj ich s
 
 Jako dowód wykonania zadania prześlij kod funkcji [sanitizeMessage](backend/src/utils/sanitizeMessage.ts). Funkcja powinna zwracać tekst wiadomości, która po wyrenderowaniu na stronie nie będzie szkodliwa.
 
+Po wysłaniu potwierdzenia wykonania zadania na UPEL przywróć funkcję [sanitizeMessage](backend/src/utils/sanitizeMessage.ts) do stanu pierwotnego - niech zwraca swój jedyny argument (`return message;`). Pomoże to w zaobserwowaniu innych ataków XSS.
+
 # Zad 2
 
 
