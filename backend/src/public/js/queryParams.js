@@ -9,18 +9,31 @@ const getAllQueryParams = () => {
 }
 
 const displayQueryParams = () => {
-    const queryParamsDiv = document.querySelector('#queryParams');
+    const queryParamsTable = document.querySelector('#queryParamsTable');
     const queryParamsObj = getAllQueryParams();
 
-    if (queryParamsDiv == null) return;
-
-    let content = '';
+    if (queryParamsTable == null) return;
 
     for (let key in queryParamsObj) {
-        content += `${key}: ${queryParamsObj[key]}<br>`;
-    }
+        if (key === 'q') continue;
 
-    queryParamsDiv.innerHTML = content;
+        const name = key;
+        const value = queryParamsObj[key];
+
+        const tr = document.createElement('tr');
+        const nameTd = document.createElement('td');
+        const valueTd = document.createElement('td');
+
+        nameTd.innerHTML = name; // do not use innerHTML
+        valueTd.innerHTML = value; // do not use innerHTML
+
+        console.log(name, value)
+
+        tr.appendChild(nameTd);
+        tr.appendChild(valueTd);
+
+        queryParamsTable.appendChild(tr);
+    }
 };
 
 displayQueryParams();

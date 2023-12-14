@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>XSSChat</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.socket.io/3.1.3/socket.io.min.js"
+            integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh"
+            crossorigin="anonymous"></script>
+
+    <script src="js/formatDate.js" defer></script>
+    <script src="js/queryParams.js" defer></script>
+    <script src="js/config.js" defer></script>
+    <script src="js/socketio.js" defer></script>
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+
+<div id="socketStatus"></div>
+
+<div class="content-container">
+    <div class="messages-container">
+        <ul class="unordered" id="messages">
+            <% messages.forEach(msg => { %>
+                <li class="msg-item">
+                    <div class="msg-author"><%- msg.clientId %></div> <!-- escape string HERE -->
+                    <div class="msg-content"><%- msg.content %></div> <!-- escape string HERE -->
+                    <div class="msg-timestamp"><%- formatDate(msg.timestamp) %></div> <!-- escape string HERE -->
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+
+    <form class="form">
+        <label>
+            <textarea
+                    id="message-input"
+                    placeholder="type something..."
+                    rows="5"
+            ></textarea>
+        </label>
+        <div class="btn-container">
+            <button class="btn" type="submit">Send</button>
+        </div>
+    </form>
+
+    <div class="queryParamsContainer">
+        <div id="queryParams"></div>
+    </div>
+
+    <h3>Query params</h3>
+    <div class="table-container">
+        <div class="table-wrapper">
+            <table>
+                <caption>Rendered client-side</caption>
+                <thead>
+                <tr>
+                    <th>name</th>
+                    <th>value</th>
+                </tr>
+                </thead>
+                <tbody id="queryParamsTable"></tbody>
+            </table>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <caption>Rendered server-side</caption>
+                <thead>
+                <tr>
+                    <th>name</th>
+                    <th>value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% queryParams.forEach(param => { %>
+                    <tr>
+                        <td><%- param.name %></td> <!-- escape string HERE -->
+                        <td><%- param.value %></td> <!-- escape string HERE -->
+                    </tr>
+                <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

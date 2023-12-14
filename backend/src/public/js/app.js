@@ -34,9 +34,9 @@ const getMessageListItem = messageObj => {
     const msgTimestampDiv = document.createElement('div'); msgTimestampDiv.classList.add('msg-timestamp');
 
     // adding tag content
-    msgAuthorDiv.innerHTML = `${messageObj.clientId !== socket.id ? messageObj.clientId : 'you'}:`;
-    msgContentDiv.innerHTML = messageObj.content;
-    msgTimestampDiv.innerHTML = formatDate(messageObj.timestamp);
+    msgAuthorDiv.innerHTML = `${messageObj.clientId !== socket.id ? messageObj.clientId : 'you'}:`; // do not use innerHTML
+    msgContentDiv.innerHTML = messageObj.content; // do not use innerHTML
+    msgTimestampDiv.innerHTML = formatDate(messageObj.timestamp); // do not use innerHTML
 
     li.appendChild(msgAuthorDiv);
     li.appendChild(msgContentDiv);
@@ -44,14 +44,6 @@ const getMessageListItem = messageObj => {
 
     return li;
 };
-
-const renderMessages = (messages) => {
-    messagesDiv.innerHTML = ''; // clear message div
-    messages.forEach(messageObj => messagesDiv.appendChild(getMessageListItem(messageObj))); // append each list item with message structure
-};
-
-// fetch all messages
-socket.on('messages', messages => renderMessages(messages));
 
 // fetch new message
 socket.on('new-message', messageObj => messagesDiv.appendChild(getMessageListItem(messageObj)));

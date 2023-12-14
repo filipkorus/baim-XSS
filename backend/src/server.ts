@@ -8,7 +8,9 @@ import config from '../config';
 import {Server} from 'socket.io'
 import logger from './utils/logger';
 import Message from './types/Message';
-import sanitizeMessage from './utils/sanitizeMessage';
+import sanitizeUserInput from './utils/sanitizeUserInput';
+import path from 'path';
+import formatDate from './utils/formatDate';
 
 const app = express();
 
@@ -28,10 +30,8 @@ const io = new Server(httpServer, {
 io.on('connection', client => {
 	logger.info(`client (ID=${client.id}) connected`);
 
-	client.emit('messages', messages);
-
 	client.on('message', (msg: string) => {
-		msg = sanitizeMessage(msg);
+		msg = sanitizeUserInput(msg);
 
 		logger.info(`client (ID=${client.id}) sent message: ${msg}`);
 
@@ -61,8 +61,24 @@ app.use(cookieParser());
 
 app.use(requestLogger);
 
+/* view engine */
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+/* static folder */
+app.use(express.static(path.join(__dirname, 'public')));
+
 /* main router */
-app.use('/', (req: Request, res: Response) => SUCCESS(res, 'Hello world', {method: req.method}));
+app.get('/', (req: Request, res: Response) => res.render('index', {
+	queryParams: Object.entries(req.query).map(([name, value]) => ({
+		name,
+		value
+	})),
+	messages,
+	formatDate
+}));
+
+app.use('/api', (req: Request, res: Response) => SUCCESS(res, 'Hello world', {method: req.method}));
 
 /* 404 Not Found handler */
 app.use('*', (req, res) => NOT_FOUND(res));
