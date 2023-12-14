@@ -65,6 +65,6 @@ Aby przetestować działanie wpisz w pasek URL dowolny parametr żądania zawier
 
 Co więcej, od tej pory również w wysyłanych na czacie wiadomościach HTML powinien nie być interpretowany przez przeglądarkę lecz wyświetlany jako zwykły tekst.
 
-Jako dowód wykonania zadania przyślij poprawionepliki [app.js](backend/src/public/js/app.js) oraz [queryParams.js](backend/src/public/js/queryParams.js).
+Jako dowód wykonania zadania przyślij poprawione pliki [app.js](backend/src/public/js/app.js) oraz [queryParams.js](backend/src/public/js/queryParams.js).
 
 **Przydatny link**: https://stackoverflow.com/questions/31466355/whats-the-use-of-textcontent-innertext-when-innerhtml-does-the-job-better
