@@ -1,29 +1,27 @@
 const selectBackground = (background) => {
     const backgrounds = ["dark","light"];
 
-    const select = document.querySelector("#select-background");
+    const buttonsContainer = document.querySelector("#select-background");
 
-    select.innerHTML += `<option selected>${background}</option>`;
+    backgrounds.forEach(bg => {
+        const btn = document.createElement('button');
+        btn.innerHTML = bg;
 
-    for (let bg of backgrounds) {
-        if (bg === background) {
-            continue;
-        }
-        select.innerHTML += `<option>${bg}</option>`;
-    }
+        btn.addEventListener("click", () => {
+            // Update the value after # in the URL
+            window.location.hash = btn.innerHTML;
+            document.body.style.backgroundImage = `url('assets/${btn.innerHTML}-snowflake-background.jpg')`;
+        });
 
-    select.addEventListener("change", () => {
-        // Update the value after # in the URL
-        window.location.hash = select.value;
-        document.body.style.backgroundImage = `url('assets/${select.value}-snowflake-background.jpg')`;
+        buttonsContainer.appendChild(btn);
     });
 
     const header = document.getElementsByClassName("header-container")[0];
     if (header) {
-        header.appendChild(select);
+        header.appendChild(buttonsContainer);
     }
 
-    document.body.style.backgroundImage = `url('assets/${select.value}-snowflake-background.jpg')`;
+    document.body.style.backgroundImage = `url('assets/${background}-snowflake-background.jpg')`;
 }
 
-selectBackground(decodeURIComponent(window.location.hash.substring(1)) || "light");
+selectBackground(decodeURIComponent(window.location.hash.substring(1)) ?? "light");
