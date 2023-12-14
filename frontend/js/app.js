@@ -60,30 +60,32 @@ socket.on('new-message', messageObj => messagesDiv.appendChild(getMessageListIte
 const selectBackground = (background) => {
     const backgrounds = ["dark","light"];
 
-    const select = document.querySelector("#select-background");
-    
-    select.innerHTML += `<option selected>${background}</option>`;
+    const buttonsContainer = document.querySelector("#select-background");
 
+    buttonsContainer.innerHTML += `<button>${background}</button>`;
 
     for (var i = 0; i < backgrounds.length; i++) {
         if (backgrounds[i] == background) {
             continue;
         }
-        select.innerHTML += `<option>${backgrounds[i]}</option>`;
+        buttonsContainer.innerHTML += `<button>${backgrounds[i]}</button>`;
     }
 
-    select.addEventListener("change", function () {
-        // Update the value after # in the URL
-        window.location.hash = select.value;
-        document.body.style.backgroundImage = `url('assets/` + select.value + `-snowflake-background.jpg')`;
+    const buttons = buttonsContainer.querySelectorAll("button");
+    buttons.forEach((button) => {
+        button.addEventListener("click", function () {
+            // Update the value after # in the URL
+            window.location.hash = button.innerHTML;
+            document.body.style.backgroundImage = `url('assets/${button.innerHTML}-snowflake-background.jpg')`;
+        });
     });
 
     var header = document.getElementsByClassName("header-container")[0];
     if (header) {
-        header.appendChild(select);
+        header.appendChild(buttonsContainer);
     }
 
-    document.body.style.backgroundImage = `url('assets/` + select.value + `-snowflake-background.jpg')`;
+    document.body.style.backgroundImage = `url('assets/` + background + `-snowflake-background.jpg')`;
 }
 
 selectBackground(decodeURIComponent(window.location.hash.substring(1)) || "light");
