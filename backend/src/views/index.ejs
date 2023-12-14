@@ -17,11 +17,15 @@
     <script src="js/queryParams.js" defer></script>
     <script src="js/config.js" defer></script>
     <script src="js/socketio.js" defer></script>
+    <script src="js/selectBackground.js" defer></script>
     <script src="js/app.js" defer></script>
 </head>
 <body>
 
-<div id="socketStatus"></div>
+<div class="header-container white-bg">
+    <div id="socketStatus"></div>
+    <select id="select-background"></select>
+</div>
 
 <div class="content-container">
     <div class="messages-container">
@@ -53,8 +57,11 @@
         <div id="queryParams"></div>
     </div>
 
-    <h3>Query params</h3>
-    <div class="table-container">
+    <div class="white-bg">
+        <h3>Query params</h3>
+    </div>
+
+    <div class="table-container white-bg">
         <div class="table-wrapper">
             <table>
                 <caption>Rendered client-side</caption>

@@ -69,14 +69,18 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* main router */
-app.get('/', (req: Request, res: Response) => res.render('index', {
-	queryParams: Object.entries(req.query).map(([name, value]) => ({
+app.get('/', (req: Request, res: Response) => {
+	const queryParams = Object.entries(req.query).map(([name, value]) => ({
 		name,
 		value
-	})),
-	messages,
-	formatDate
-}));
+	}));
+
+	res.render('index', {
+		queryParams,
+		messages,
+		formatDate
+	})
+});
 
 app.use('/api', (req: Request, res: Response) => SUCCESS(res, 'Hello world', {method: req.method}));
 
