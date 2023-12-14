@@ -31,7 +31,7 @@ Aby zapobiec zapisywaniu zainfekowanych wiadomości do bazy danych wykonaj ich s
 
 Aby przetestować działanie sanityzacji po stronie serwera otwórz dwa okna przeglądarki z czatem.
 
-Po wysłaniu na czacie wiadomości zawierającej kod HTML (np `<h1>hello</h1>`) powinniśmy widzieć niezinterpretowany przez przeglądarkę kod HTML **w drugim oknie** przeglądarki, czyli treść **otrzymanej** wiadomości powinna wyglądać tak: `<h1>hello</h1>`.
+Po wysłaniu na czacie wiadomości zawierającej HTML (np `<h1>hello</h1>`) powinniśmy widzieć niezinterpretowany przez przeglądarkę kod HTML **w drugim oknie** przeglądarki, czyli treść **otrzymanej** wiadomości powinna wyglądać tak: `<h1>hello</h1>`.
 
 Jako dowód wykonania zadania prześlij kod funkcji [sanitizeUserInput](backend/src/utils/sanitizeUserInput.ts). Funkcja powinna zwracać tekst wiadomości, która po wyrenderowaniu na stronie nie będzie szkodliwa.
 
@@ -45,7 +45,7 @@ Wyświetlane w ten sposób parametry URL mogą być potencjalnym wektorem ataku 
 
 Twoim zadaniem jest sanityzacja danych wyświetlanych za pomocą EJS. Dane są wyświetlane za pomocą charakterystycznego tagu EJS (`<%`) w kilku miejscach pliku [index.ejs](backend/src/views/index.ejs) znajdującego się w katalogu [backend/src/views/](backend/src/views/index.ejs). Linie, które należy edytować są oznaczone komentarzem o treści `escape string HERE`.
 
-Aby przetestować działanie wpisz w pasek URL dowolny parametr żądania zawierającego HTML (np `http://localhost:9000/?param1=<h1>hello</h1>`). W tabeli **po prawej stronie (rendered server-side)** powinien się wyświetlić tekst `<h1>hello</h1>` zamiast <h1 style="margin-top:-30px;">hello</h1>
+Aby przetestować działanie wpisz w pasek URL dowolny parametr żądania zawierający HTML (np `http://localhost:9000/?param1=<h1>hello</h1>`). W tabeli **po prawej stronie (rendered server-side)** powinien się wyświetlić tekst `<h1>hello</h1>` zamiast <h1 style="margin-top:-30px;">hello</h1>
 
 Jako dowód wykonania zadania przyślij plik [index.ejs](backend/src/views/index.ejs), z poprawionym wyświetlaniem zmiennych w tagach EJS.
 
@@ -61,7 +61,7 @@ Twoim zadaniem jest użycie innej metody JavaScript do wyświetlania tekstu w ap
 
 W tym celu zmodyfikuj pliki [app.js](backend/src/public/js/app.js) oraz [queryParams.js](backend/src/public/js/queryParams.js) znajdujące się pod ścieżką [backend/src/public/js/](backend/src/public/js/). Linie kodu, które należy poprawić są w obu plikach oznaczone komentarzem `do not use innerHTML`.
 
-Aby przetestować działanie wpisz w pasek URL dowolny parametr żądania zawierającego HTML (np `http://localhost:9000/?param1=<h1>hello</h1>`) w tabelce po lewej stronie powinien się wyświetlić tekst `<h1>hello</h1>` zamiast <h1 style="margin-top:-30px;">hello</h1>
+Aby przetestować działanie wpisz w pasek URL dowolny parametr żądania zawierający HTML (np `http://localhost:9000/?param1=<h1>hello</h1>`) w tabelce po lewej stronie powinien się wyświetlić tekst `<h1>hello</h1>` zamiast <h1 style="margin-top:-30px;">hello</h1>
 
 Co więcej, od tej pory również w wysyłanych na czacie wiadomościach HTML powinien nie być interpretowany przez przeglądarkę lecz wyświetlany jako zwykły tekst.
 
