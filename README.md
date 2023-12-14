@@ -21,6 +21,8 @@ Serwer jest automatycznie restartowany w momencie zapisania zmian wprowadzonych 
 
 Celem zadań będzie poprawienie luk w aplikacji, które pozwalają na atak typu XSS.
 
+**UWAGA: Wszystkie zadania wykonuj w przeglądarce FIREFOX.**
+
 ## Zad 1 - Stored XSS
 Celem zadania jest zapobiegnięcie atakowi XSS typu Stored.
 
