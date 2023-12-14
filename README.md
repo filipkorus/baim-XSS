@@ -68,3 +68,10 @@ Co więcej, od tej pory również w wysyłanych na czacie wiadomościach HTML po
 Jako dowód wykonania zadania przyślij poprawione pliki [app.js](backend/src/public/js/app.js) oraz [queryParams.js](backend/src/public/js/queryParams.js).
 
 **Przydatny link**: https://stackoverflow.com/questions/31466355/whats-the-use-of-textcontent-innertext-when-innerhtml-does-the-job-better
+
+## Zad 4 - DOM-based XSS
+Uwaga, konieczne jest zrobienie zadania 3 przed zadaniem 4.
+
+W aplikacji znajduje się jeszcze jedno miejsce, w którym możliwe jest przeprowadzenie ataku DOM-based XSS. Znajdź tę podatność, a jako rozwiązanie wyślij link, który pozwala za jej pomocą wyświetlić na stronie dowolny komunikat.
+
+**Przydatny link**: https://www.youtube.com/watch?v=_3Wgx1FabIo&t=353s
