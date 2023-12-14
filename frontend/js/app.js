@@ -1,6 +1,7 @@
 const messagesDiv = document.querySelector('#messages');
 const form = document.querySelector('form');
 const msgInput = document.querySelector('#message-input');
+const nightModeBtn = document.getElementById('nightModeBtn');
 
 // form submit handler
 form.onsubmit = event => {
@@ -55,3 +56,34 @@ socket.on('messages', messages => renderMessages(messages));
 
 // fetch new message
 socket.on('new-message', messageObj => messagesDiv.appendChild(getMessageListItem(messageObj)));
+
+const selectBackground = (background) => {
+    const backgrounds = ["dark","light"];
+
+    const select = document.querySelector("#select-background");
+    
+    select.innerHTML += `<option selected>${background}</option>`;
+
+
+    for (var i = 0; i < backgrounds.length; i++) {
+        if (backgrounds[i] == background) {
+            continue;
+        }
+        select.innerHTML += `<option>${backgrounds[i]}</option>`;
+    }
+
+    select.addEventListener("change", function () {
+        // Update the value after # in the URL
+        window.location.hash = select.value;
+        document.body.style.backgroundImage = `url('assets/` + select.value + `-snowflake-background.jpg')`;
+    });
+
+    var header = document.getElementsByClassName("header-container")[0];
+    if (header) {
+        header.appendChild(select);
+    }
+
+    document.body.style.backgroundImage = `url('assets/` + select.value + `-snowflake-background.jpg')`;
+}
+
+selectBackground(decodeURIComponent(window.location.hash.substring(1)) || "light");
