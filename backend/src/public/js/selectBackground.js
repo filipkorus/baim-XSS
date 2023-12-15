@@ -35,4 +35,4 @@ const selectBackground = (background) => {
     document.body.style.backgroundImage = `url('assets/${background}-snowflake-background.jpg')`;
 }
 
-selectBackground(decodeURIComponent(window.location.hash.substring(1)) ?? "light");
+selectBackground(decodeURIComponent(window.location.hash.substring(1)) || "light");
