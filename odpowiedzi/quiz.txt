@@ -1,0 +1,28 @@
+1. W jakich atakach wstrzyknięcie złośliwego kodu następuje po stronie serwera?
+a. Stored XSS [poprawne]
+b. Reflected XSS [poprawne]
+c. DOM-based XSS
+
+2. Które z tych stwierdzeń jest poprawne?
+a. Encje HTML stanowią stuprocentową ochronę przed atakami XSS.
+b. Istnieją tylko 3 rodzaje ataków XSS.
+c. Niektóre biblioteki i frameworki mają wbudowane zabezpieczenia, które chronią aplikację użytkownika przed zaatakowaniem przez hakera. [poprawne]
+d. Wstrzykiwany kod musi być napisany w JavaScript.
+
+3. Czym charakteryzuje się DOM-based XSS?
+a. Nie jest potrzebny spreparowany link, aby wykonać na kimś atak.
+b. Złośliwy kod dodawany jest do zawartości strony po stronie klienta. [poprawne]
+c. Złośliwy kod nie musi być zapisywany do bazy danych. [poprawne]
+d. Strona, która nie pobiera danych użytkownika jest zabezpieczona przed atakiem DOM-based XSS.
+
+4. Jak najbezpieczniej (w kontekście XSS) wypełniać kontener w HTML (np div) zawartością?
+a. element.textContent = ‘zawartosc <script>alert(1);<script>’; [poprawne]
+b. element.innerHTML = ‘zawartosc <script>alert(1);<script>’;
+c. element.style.display = ‘zawartosc <script>alert(1);<script>’;
+d. element.classList.add(‘zawartosc <script>alert(1);<script>’);
+
+5. Jak się chronić przed atakiem XSS?
+a. Sanityzacja danych pochodzących od użytkownika. [poprawne]
+b. Korzystanie z WAF. [poprawne]
+c. Korzystanie z bibliotek i frameworków do budowy frontendu. [poprawne]
+d. Umieszczanie niezaufanego kodu HTML bezpośrednio w treści strony.
