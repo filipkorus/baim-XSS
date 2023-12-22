@@ -1,3 +1,3 @@
 const CONFIG = {
-    SOCKETIO_SERVER: 'http://localhost:9000'
+    SOCKETIO_SERVER: 'http://localhost:9001'
 };

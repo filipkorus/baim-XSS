@@ -2,7 +2,7 @@ import 'dotenv/config';
 import checkObjectValuesNotNull from '../src/utils/checkObjectValuesNotNull';
 
 const config = {
-	PORT: process.env.PORT ?? 9000,
+	PORT: process.env.PORT ?? 9001,
 	ALLOWED_ORIGINS: '*',
 	LOGGER: {
 		LEVEL: 'debug',
